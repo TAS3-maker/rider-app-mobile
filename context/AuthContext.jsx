@@ -24,12 +24,17 @@ export function AuthProvider({ children }) {
     })();
   }, []);
 
-  const login = useCallback(async (email, password) => {
-    const res = await authApi.login(email, password);
-    await setToken(res.accessToken);
-    setUser(res.user);
-    return res.user;
-  }, []);
+const login = useCallback(async (email, password) => {
+  const res = await authApi.login(email, password);
+
+  await setToken(res.accessToken);
+
+  const meResponse = await authApi.me();
+
+  setUser(meResponse.user);
+
+  return meResponse.user;
+}, []);
 
   // register returns { user, devVerificationCode } — verification happens next.
   const register = useCallback((payload) => authApi.register(payload), []);

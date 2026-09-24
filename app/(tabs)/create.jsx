@@ -187,7 +187,7 @@ export default function CreateRide() {
         mode,
       });
       if (mode === 'private') {
-        router.push({ pathname: '/group', params: { id: res.group.id } });
+        router.push({ pathname: '/private-group', params: { id: res.group.id } });
       } else if (res.matchCount > 0) {
         router.push({ pathname: '/browse', params: { rideId: res.ride.id } });
       } else {

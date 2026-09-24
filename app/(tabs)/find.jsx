@@ -125,6 +125,8 @@ export default function Find() {
         <Pressable className="flex-1 bg-black/40 justify-end" onPress={() => setOpen(null)}>
           <Pressable className="bg-bg rounded-t-[24px] px-6" style={{ paddingTop: 20, paddingBottom: insets.bottom + 20 }} onPress={() => {}}>
             <Text style={{ fontSize: 18, fontWeight: '800', color: INK, marginBottom: 14 }}>{menu?.title}</Text>
+
+            
             <ScrollView style={{ maxHeight: 340 }} showsVerticalScrollIndicator={false}>
               {menu?.options.map((o, i) => {
                 const selected = String(o.value) === String(menu.current);
@@ -141,6 +143,10 @@ export default function Find() {
                   </Pressable>
                 );
               })}
+
+
+
+
             </ScrollView>
           </Pressable>
         </Pressable>

@@ -5,7 +5,7 @@ import { useLocalSearchParams, useRouter, useFocusEffect } from 'expo-router';
 import { ArrowLeft, Star, User, MapPin, UserCheck, Receipt } from 'lucide-react-native';
 import * as Clipboard from 'expo-clipboard';
 import { groupsApi } from '@/api/rides';
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from '@/context/AuthContext'
 import { formatTime, formatDate, countdown } from '@/lib/format';
 
 const INK = '#1E2A38';
@@ -156,7 +156,6 @@ export default function GroupDetails() {
             <Text style={{ fontSize: 15, fontWeight: '700', color: '#fff' }}>Save ~{group.savingsPct || 0}% vs ${group.soloFareEstimate} Riding Solo</Text>
           </Pressable>
         </View>
-
         {isBooker ? (
           <>
             {/* Pickup Mode */}
@@ -319,6 +318,8 @@ export default function GroupDetails() {
           )}
         </View>
       </ScrollView>
+
+
 
       <Modal transparent visible={confirmLeave} animationType="fade" onRequestClose={() => setConfirmLeave(false)}>
         <View className="flex-1 bg-black/40 items-center justify-center px-8">

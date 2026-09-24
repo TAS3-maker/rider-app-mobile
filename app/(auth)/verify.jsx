@@ -8,6 +8,8 @@ import Button from '@/components/Button';
 import { useAuth } from '@/context/AuthContext';
 
 export default function Verify() {
+
+
   const insets = useSafeAreaInsets();
   const router = useRouter();
   const { verifyEmail } = useAuth();

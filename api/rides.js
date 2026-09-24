@@ -18,6 +18,7 @@ export const groupsApi = {
     if (params.timeWindow) q.set('timeWindow', params.timeWindow);
     if (params.minBags != null) q.set('minBags', params.minBags);
     if (params.maxBags != null) q.set('maxBags', params.maxBags);
+    
     return apiFetch(`/groups?${q.toString()}`);
   },
   get: (id) => apiFetch(`/groups/${id}`),
@@ -27,6 +28,8 @@ export const groupsApi = {
   setBooker: (id, userId) => apiFetch(`/groups/${id}/booker`, { method: 'POST', body: { userId } }),
   book: (id) => apiFetch(`/groups/${id}/book`, { method: 'POST' }),
   complete: (id) => apiFetch(`/groups/${id}/complete`, { method: 'POST' }),
+    previewInvite: (code) => apiFetch(`/groups/invite/${code}`),
+  joinInvite: (code, payload) => apiFetch(`/groups/invite/${code}/join`, { method: 'POST', body: payload }),
   cancel: (id, reason) => apiFetch(`/groups/${id}/cancel`, { method: 'POST', body: { reason } }),
 };
 
